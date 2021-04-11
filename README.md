@@ -19,7 +19,7 @@ Subscribe to currently airing anime and get notified when new episodes are relea
 - **Category:** Utility
 - **Mobile:** Primarily mobile, possibly could be a website.
 - **Story:** There will be a list of all the currently airing anime then you can choose which ones to subscribe to. There will be a page for your currently subscribed to animes. 
-- **Market:** People that are interested in watching anime.
+- **Market:** People that are interested in watching and keeping up to date with currently airing animes for the season.
 - **Habit:** They can use it on a weekly or a daily basis depending on how many animes they want to watch. 
 - **Scope:** Users can add animes to their personal lists to keep track off. It can then evolve into the app recommending users animes based off their personal lists. 
 
@@ -64,8 +64,8 @@ Subscribe to currently airing anime and get notified when new episodes are relea
 **Flow Navigation** (Screen to Screen)
 
 * Log-in -> Account creation if no log in is available
-* Click on an anime -> Description
-* Personal List -> 
+* Currently Airing Animes Screen -> Anime Details
+* Personal List -> Anime Details
 * Settings -> Toggle settings
 
 ## Wireframes
