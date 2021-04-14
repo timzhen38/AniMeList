@@ -77,10 +77,81 @@ Subscribe to currently airing anime and get notified when new episodes are relea
 ### [BONUS] Interactive Prototype
 
 ## Schema 
-[This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+#### Anime
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | animeId       | Integer  | The unique id of each anime |
+   | title         | String   | title of the anime |
+   | image         | Object   | cover image of each anime |
+   | rating        | Integer  | The score users rated the anime |
+   | synopsis      | String   | A summary of each anime |
+   | subscribe     | Boolean  | Determines if user subscribed to anime  |
+
+#### User/Profile
+
+
+   | Property          | Type          | Description |
+   | -------------     | --------      | ------------|
+   | userId            | Integer       | The unique id of each user |
+   | username          | String        | The username of the user |
+   | subscribed_animes | List<Anime>   | The list of subscribed animes from user |
+   
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
+#### List of network requests by screen
+   - Currently Airing Anime Screen
+      - (READ/GET) Query all the animes currently airing this season.
+         ```swift
+         let query = PFQuery(className:"Anime")
+         query.order(byDescending: "title")
+         query.findObjectsInBackground { (anime: [PFObject]?, error: Error?) in
+            if let error = error { 
+                print(error.localizedDescription)
+            } else if let anime = anime {
+                print("Successfully retrieved \( Anime.count) Anime.")
+            // TODO: Do something with anime...
+             }
+         }
+
+         ```
+      - (Create/POST) Subscribe to an anime.
+      - (Delete) Unsubscribe to an anime.
+   - Anime Details Screen
+      - (READ/GET) Query all the details about the anime.
+         ```swift
+         let query = PFQuery(className:"Details")
+         query.whereKey("anime", equalTo: currentAnime) 
+         query.order(byDescending: "title")
+         query.findObjectsInBackground { (anime: [PFObject]?, error: Error?) in
+            if let error = error { 
+                print(error.localizedDescription)
+            } else if let anime = anime {
+                print("Successfully retrieved \( Anime.count) Anime.")
+            // TODO: Do something with anime...
+             }
+         }
+
+         ```
+      - (Create/POST) Subscribe to an anime.
+      - (Delete) Unsubscribe to an anime.
+   - User Anime List
+      - (READ/GET) Query all the animes the user subscribed to.
+         ```swift
+         let query = PFQuery(className:"Anime")
+         query.whereKey("subscribed", equalTo: true) 
+         query.order(byDescending: "title")
+         query.findObjectsInBackground { (anime: [PFObject]?, error: Error?) in
+            if let error = error { 
+                print(error.localizedDescription)
+            } else if let anime = anime {
+                print("Successfully retrieved \( Anime.count) Anime.")
+            // TODO: Do something with anime...
+             }
+         }
+
+         ```
+      - (DELETE) Unsubscribe to an anime.
+   - Settings Screen
+      - (UPDATE/PUT) The option to put the screen on light or dark mode.
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
