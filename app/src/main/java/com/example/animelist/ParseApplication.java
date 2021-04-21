@@ -1,7 +1,6 @@
 package com.example.animelist;
 
 import android.app.Application;
-
 import com.parse.Parse;
 
 public class ParseApplication extends Application {
