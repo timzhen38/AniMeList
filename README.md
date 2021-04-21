@@ -158,4 +158,5 @@ Subscribe to currently airing anime and get notified when new episodes are relea
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
 
 ## Gifs
+### Sprint 1
 <img src='sprint1.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
