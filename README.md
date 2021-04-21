@@ -29,10 +29,10 @@ Subscribe to currently airing anime and get notified when new episodes are relea
 
 **Required Must-have Stories**
 
-* User registers/logins to have a personal list of what animes they want to subscribe
-* Users can see the all of the currently airing anime
-* User can subscribe to which anime they want to get notified about
-* Settings (Light/Dark Mode)
+- [] User registers/logins to have a personal list of what animes they want to subscribe
+- [] Users can see the all of the currently airing anime
+- [] User can subscribe to which anime they want to get notified about
+- [] Settings (Light/Dark Mode)
 
 **Optional Nice-to-have Stories**
 
