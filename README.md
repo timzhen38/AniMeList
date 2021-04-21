@@ -9,6 +9,7 @@ Original App Design Project - README Template
 1. [Product Spec](#Product-Spec)
 1. [Wireframes](#Wireframes)
 2. [Schema](#Schema)
+3. [Gifs](#Gifs)
 
 ## Overview 
 ### Description
@@ -155,3 +156,6 @@ Subscribe to currently airing anime and get notified when new episodes are relea
    - Settings Screen
       - (UPDATE/PUT) The option to put the screen on light or dark mode.
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+## Gifs
+
