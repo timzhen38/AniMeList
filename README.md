@@ -9,6 +9,7 @@ Original App Design Project - README Template
 1. [Product Spec](#Product-Spec)
 1. [Wireframes](#Wireframes)
 2. [Schema](#Schema)
+3. [Gifs](#Gifs)
 
 ## Overview 
 ### Description
@@ -29,10 +30,10 @@ Subscribe to currently airing anime and get notified when new episodes are relea
 
 **Required Must-have Stories**
 
-* User registers/logins to have a personal list of what animes they want to subscribe
-* Users can see the all of the currently airing anime
-* User can subscribe to which anime they want to get notified about
-* Settings (Light/Dark Mode)
+- [x] User registers/logins to have a personal list of what animes they want to subscribe
+- [ ] Users can see the all of the currently airing anime
+- [ ] User can subscribe to which anime they want to get notified about
+- [ ] Settings (Light/Dark Mode)
 
 **Optional Nice-to-have Stories**
 
@@ -155,3 +156,7 @@ Subscribe to currently airing anime and get notified when new episodes are relea
    - Settings Screen
       - (UPDATE/PUT) The option to put the screen on light or dark mode.
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+## Gifs
+### Sprint 1
+<img src='sprint1.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
