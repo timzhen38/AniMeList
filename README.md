@@ -31,7 +31,7 @@ Subscribe to currently airing anime and get notified when new episodes are relea
 **Required Must-have Stories**
 
 - [x] User registers/logins to have a personal list of what animes they want to subscribe
-- [ ] Users can see the all of the currently airing anime
+- [x] Users can see all of the currently airing anime
 - [ ] User can subscribe to which anime they want to get notified about
 - [ ] Settings (Light/Dark Mode)
 
@@ -160,3 +160,4 @@ Subscribe to currently airing anime and get notified when new episodes are relea
 ## Gifs
 ### Sprint 1
 <img src='sprint1.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
+<img src='sprint2.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
