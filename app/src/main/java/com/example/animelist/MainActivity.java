@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    //example url: https://api.jikan.moe/v3/season/2018/winter
     List<Anime> animes;
 
     @Override
