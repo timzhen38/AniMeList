@@ -22,12 +22,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import okhttp3.Headers;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String NOW_PLAYING_URL = "https://api.jikan.moe/v3/season/2021/spring";
+    public String NOW_PLAYING_URL;
     public static final String TAG = "MainActivity";
     List<Anime> animes;
     private BottomNavigationView bottomNavigationView;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getSeason();
 
         bottomNavigationView = findViewById(R.id.bottomNavigation);
 
@@ -93,6 +96,16 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void getSeason()
+    {
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        int month = Calendar.getInstance().get(Calendar.MONTH);
+        String seasons[] = {"","winter", "winter", "winter", "spring", "spring", "spring", "summer", "summer",
+                "summer", "fall", "fall", "fall"};
+        String season = seasons[month];
+        NOW_PLAYING_URL = "https://api.jikan.moe/v3/season/" + year + "/" + season;
     }
 }
 
