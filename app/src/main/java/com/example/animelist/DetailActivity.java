@@ -43,9 +43,7 @@ public class DetailActivity extends AppCompatActivity {
 
         tvTitle.setText(anime.getTitle());
         tvOverview.setText(anime.getSynopsis());
-        //Log.d("DetailActivity",Double.toString(anime.getScore()));
-       // String ratingString = Double.toString(anime.getScore());
-        tvRating.setText(anime.getScore());
+        tvRating.setText(anime.getGenre());
         Glide.with(this).load(anime.getImageURL()).into(ivPoster);
     }
 }

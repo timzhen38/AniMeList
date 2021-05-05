@@ -18,7 +18,7 @@ public class Anime {
     String type;
     //int episodes;
     String score;
-    //JSONArray genre;
+    String genre;
 
     public Anime(){}
 
@@ -30,7 +30,8 @@ public class Anime {
         type = jsonObject.getString("type");
         //episodes = jsonObject.getInt("episodes");
         score = jsonObject.getString("score");
-        //genre = jsonObject.getJSONArray("genres");
+        genre = allGenres(jsonObject);
+        //genre = new String[]{"test1", "test2"};
     }
 
     public static List<Anime> fromJsonArray(JSONArray animeJsonArray) throws JSONException {
@@ -40,6 +41,19 @@ public class Anime {
             animes.add(new Anime(animeJsonArray.getJSONObject(i)));
         }
         return animes;
+    }
+
+    public String allGenres(JSONObject jsonObject) throws JSONException {
+        JSONArray genreList = jsonObject.getJSONArray("genres");
+        String allGenreString = "";
+        for(int i=0;i<genreList.length();i++)
+        {
+            if(i==genreList.length()-1)
+                allGenreString+=genreList.getJSONObject(i).getString("name");
+            else
+                allGenreString+=genreList.getJSONObject(i).getString("name")+",";
+        }
+        return allGenreString;
     }
 
     public int getAnimeID() {
@@ -58,17 +72,16 @@ public class Anime {
         return image_url;
     }
 
-    public String getType() {
-        return type;
-    }
+    public String getType() { return type; }
 
     public String getScore() { return score; }
+
+    public String getGenre() { return genre; }
 
     /*public int getEpisodes() {
         return episodes;
     }
 
-    public JSONArray getGenre() {
-        return genre;
+
     }*/
 }
