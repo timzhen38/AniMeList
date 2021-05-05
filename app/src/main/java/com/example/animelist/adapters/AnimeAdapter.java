@@ -1,6 +1,7 @@
 package com.example.animelist.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.animelist.DetailActivity;
 import com.example.animelist.R;
 import com.example.animelist.model.Anime;
+
+import org.parceler.Parcel;
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -65,25 +70,20 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.ViewHolder>{
             container = itemView.findViewById(R.id.container);
         }
 
-        public void bind(Anime movie) {
-            tvTitle.setText(movie.getTitle());
-            tvOverview.setText(movie.getSynopsis());
-            String imageUrl;
-            imageUrl = movie.getImageURL();
+        public void bind(Anime anime) {
+            tvTitle.setText(anime.getTitle());
+            tvOverview.setText(anime.getSynopsis());
+            String imageUrl = anime.getImageURL();
             Glide.with(context).load(imageUrl).into(ivPoster);
 
-            /*
-            // 1. Register click listener on the whole row
             container.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // 2. Navigate to a new activity on tap
                     Intent i = new Intent(context, DetailActivity.class);
-                    i.putExtra("anime", Parcels.wrap(movie));
+                    i.putExtra("anime",Parcels.wrap(anime));
                     context.startActivity(i);
                 }
             });
-            */
         }
     }
 }

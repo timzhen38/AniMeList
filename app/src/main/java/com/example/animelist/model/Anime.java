@@ -3,10 +3,12 @@ package com.example.animelist.model;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Parcel
 public class Anime {
 
     int animeID;
@@ -15,8 +17,8 @@ public class Anime {
     String image_url;
     String type;
     //int episodes;
-    double score;
-    JSONArray genre;
+    String score;
+    //JSONArray genre;
 
     public Anime(){}
 
@@ -27,8 +29,8 @@ public class Anime {
         image_url = jsonObject.getString("image_url");
         type = jsonObject.getString("type");
         //episodes = jsonObject.getInt("episodes");
-        //score = jsonObject.getDouble("score");
-        genre = jsonObject.getJSONArray("genres");
+        score = jsonObject.getString("score");
+        //genre = jsonObject.getJSONArray("genres");
     }
 
     public static List<Anime> fromJsonArray(JSONArray animeJsonArray) throws JSONException {
@@ -60,17 +62,13 @@ public class Anime {
         return type;
     }
 
+    public String getScore() { return score; }
+
     /*public int getEpisodes() {
         return episodes;
     }
 
-
-    public double getScore() {
-        return score;
-    }
-     */
-
     public JSONArray getGenre() {
         return genre;
-    }
+    }*/
 }
