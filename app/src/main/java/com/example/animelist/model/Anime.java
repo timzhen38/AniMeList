@@ -19,6 +19,7 @@ public class Anime {
     //int episodes;
     String score;
     String genre;
+    String studio;
 
     public Anime(){}
 
@@ -31,7 +32,7 @@ public class Anime {
         //episodes = jsonObject.getInt("episodes");
         score = jsonObject.getString("score");
         genre = allGenres(jsonObject);
-        //genre = new String[]{"test1", "test2"};
+        studio = animeStudio(jsonObject);
     }
 
     public static List<Anime> fromJsonArray(JSONArray animeJsonArray) throws JSONException {
@@ -45,7 +46,7 @@ public class Anime {
 
     public String allGenres(JSONObject jsonObject) throws JSONException {
         JSONArray genreList = jsonObject.getJSONArray("genres");
-        String allGenreString = "";
+        String allGenreString = "Genre: ";
         for(int i=0;i<genreList.length();i++)
         {
             if(i==genreList.length()-1)
@@ -55,6 +56,17 @@ public class Anime {
         }
         return allGenreString;
     }
+
+    public String animeStudio(JSONObject jsonObject) throws JSONException{
+        JSONArray producers = jsonObject.getJSONArray("producers");
+        String studio="";
+        for(int i=0;i<producers.length();i++)
+        {
+            studio="Studio: "+producers.getJSONObject(i).getString("name");
+        }
+        return studio;
+    }
+
 
     public int getAnimeID() {
         return animeID;
@@ -77,6 +89,8 @@ public class Anime {
     public String getScore() { return score; }
 
     public String getGenre() { return genre; }
+
+    public String getStudio() { return studio; }
 
     /*public int getEpisodes() {
         return episodes;
