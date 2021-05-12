@@ -26,12 +26,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*
-        sharedPreferences = getSharedPreferences("save", Context.MODE_PRIVATE);
-        if(sharedPreferences.getBoolean("value",true))
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        else
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);*/
 
         setContentView(R.layout.activity_main);
 
@@ -57,8 +51,15 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        // Set default selection
-        bottomNavigationView.setSelectedItemId(R.id.action_home);
+
+        if(savedInstanceState == null)
+            bottomNavigationView.setSelectedItemId(R.id.action_home);
+
+        sharedPreferences = getSharedPreferences("save", Context.MODE_PRIVATE);
+        if(sharedPreferences.getBoolean("value",true))
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        else
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     }
 
 }
