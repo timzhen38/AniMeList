@@ -51,7 +51,7 @@ public class Anime {
             if(i==genreList.length()-1)
                 allGenreString+=genreList.getJSONObject(i).getString("name");
             else
-                allGenreString+=genreList.getJSONObject(i).getString("name")+",";
+                allGenreString+=genreList.getJSONObject(i).getString("name")+", ";
         }
         return allGenreString;
     }
