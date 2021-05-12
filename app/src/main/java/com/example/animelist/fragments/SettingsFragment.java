@@ -1,23 +1,29 @@
 package com.example.animelist.fragments;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import com.example.animelist.LoginActivity;
+import com.example.animelist.MainActivity;
 import com.example.animelist.R;
 import com.parse.ParseUser;
 
 public class SettingsFragment extends Fragment {
 
     Button logoutBtn;
+    Switch modeSwitch;
 
     public SettingsFragment() {
     }
@@ -38,6 +44,20 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 logoutUser();
+            }
+        });
+
+        modeSwitch = view.findViewById(R.id.swModeToggle);
+        modeSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(modeSwitch.isChecked()){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                }
+                if(!modeSwitch.isChecked()){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+
             }
         });
     }

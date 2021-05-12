@@ -30,7 +30,7 @@
             android:layout_marginTop="7dp"
             android:layout_marginEnd="5dp"
             android:layout_toEndOf="@+id/ivPoster"
-            android:textSize="24sp"
+            android:textSize="20dp"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="131dp"
             tools:layout_editor_absoluteY="0dp"
@@ -39,7 +39,7 @@
         <TextView
             android:id="@+id/tvDescription"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="501dp"
             android:layout_below="@+id/ivPoster"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
@@ -49,8 +49,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="7dp"
             android:layout_marginBottom="0dp"
-            android:text="This is the description of the anime"
-            android:textSize="20sp" />
+            android:text="This is the description of the anime" />
 
         <TextView
             android:id="@+id/tvGenre"
@@ -63,21 +62,17 @@
             android:layout_marginEnd="3dp"
             android:layout_toEndOf="@+id/ivPoster"
             android:text="Genre"
-            android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/tvStudio"
             android:layout_width="232dp"
-            android:layout_height="wrap_content"
+            android:layout_height="33dp"
             android:layout_below="@+id/tvGenre"
-            android:layout_alignParentEnd="true"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="3sp"
             android:layout_toEndOf="@+id/ivPoster"
             android:textColor="#000000"
-            android:textSize="16sp"
             tools:text="Studio" />
 
     </RelativeLayout>

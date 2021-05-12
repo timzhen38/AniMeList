@@ -32,16 +32,13 @@ public class MainActivity extends AppCompatActivity {
                 Fragment fragment;
                 switch (menuItem.getItemId()) {
                     case R.id.action_home:
-                        Toast.makeText(MainActivity.this, "Home", Toast.LENGTH_SHORT).show();
                         fragment = new ComposeFragment();
                         break;
                     case R.id.action_subscription:
-                        Toast.makeText(MainActivity.this, "Subscription", Toast.LENGTH_SHORT).show();
                         fragment = new SubscriptionsFragment();
                         break;
                     case R.id.action_settings:
                     default:
-                        Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT).show();
                         fragment = new SettingsFragment();
                         break;
                 }
