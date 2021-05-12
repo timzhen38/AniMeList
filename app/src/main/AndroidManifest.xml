@@ -13,7 +13,7 @@
         android:name=".ParseApplication"
         android:usesCleartextTraffic="true"
         android:supportsRtl="true"
-        android:theme="@style/LightTheme">
+        android:theme="@style/AniMeListTheme">
         <activity android:name=".DetailActivity"></activity>
         <activity android:name=".LoginActivity">
             <intent-filter>

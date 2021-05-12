@@ -10,10 +10,14 @@
         android:id="@+id/logoutBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
+        android:layout_centerVertical="false"
+        android:layout_marginEnd="156dp"
+        android:layout_marginBottom="106dp"
         android:text="Log Out"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        tools:layout_centerHorizontal="true" />
 
     <Switch
         android:id="@+id/swModeToggle"
@@ -21,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="99dp"
+        android:layout_marginBottom="200dp"
         android:text="Light Mode/ Night Mode" />
 
 </RelativeLayout>
