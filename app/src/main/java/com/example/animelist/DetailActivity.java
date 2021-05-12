@@ -2,31 +2,23 @@ package com.example.animelist;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
-import com.codepath.asynchttpclient.AsyncHttpClient;
-import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.animelist.model.Anime;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.parceler.Parcels;
-
-import java.util.List;
-
-import okhttp3.Headers;
 
 public class DetailActivity extends AppCompatActivity {
 
     Context context;
     TextView tvTitle;
     TextView tvOverview;
-    TextView tvRating;
+    TextView tvGenre;
+    TextView tvStudio;
     ImageView ivPoster;
 
     @Override
@@ -37,13 +29,15 @@ public class DetailActivity extends AppCompatActivity {
         tvTitle = findViewById(R.id.tvTitle);
         tvOverview = findViewById(R.id.tvDescription);
         ivPoster = findViewById(R.id.ivPoster);
-        tvRating=findViewById(R.id.tvRating);
+        tvGenre=findViewById(R.id.tvGenre);
+        tvStudio=findViewById(R.id.tvStudio);
 
         Anime anime = Parcels.unwrap(getIntent().getParcelableExtra("anime"));
 
         tvTitle.setText(anime.getTitle());
         tvOverview.setText(anime.getSynopsis());
-        tvRating.setText(anime.getGenre());
+        tvGenre.setText(anime.getGenre());
+        tvStudio.setText(anime.getStudio());
         Glide.with(this).load(anime.getImageURL()).into(ivPoster);
     }
 }
