@@ -37,14 +37,14 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.ViewHolder>{
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.d("MovieAdapter", "onCreateViewHolder");
+        Log.d("AnimeAdapter", "onCreateViewHolder");
         View animeView = LayoutInflater.from(context).inflate(R.layout.item_anime, parent, false);
         return new ViewHolder(animeView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Log.d("MovieAdapter", "onBindViewHolder " + position);
+        Log.d("AnimeAdapter", "onBindViewHolder " + position);
         //Get the movie at the passed in position
         Anime anime = animes.get(position);
         //Bind the movie data into the VH

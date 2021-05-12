@@ -1,10 +1,13 @@
 package com.example.animelist;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -17,10 +20,12 @@ public class MainActivity extends AppCompatActivity {
 
     final FragmentManager fragmentManager = getSupportFragmentManager();
     private BottomNavigationView bottomNavigationView;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottomNavigation);
@@ -45,8 +50,15 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        // Set default selection
-        bottomNavigationView.setSelectedItemId(R.id.action_home);
+
+        if(savedInstanceState == null)
+            bottomNavigationView.setSelectedItemId(R.id.action_home);
+
+        sharedPreferences = getSharedPreferences("save", Context.MODE_PRIVATE);
+        if(sharedPreferences.getBoolean("value",true))
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        else
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     }
 
 }

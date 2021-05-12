@@ -66,11 +66,11 @@ public class ComposeFragment extends Fragment {
         client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Headers headers, JSON json) {
-                Log.e(TAG, "anSuccess");
+                Log.e(TAG, "onSuccess");
                 JSONObject jsonObject = json.jsonObject;
                 try {
                     JSONArray results = jsonObject.getJSONArray("anime");
-                    Log.i(TAG, "Results: " + results.toString());
+                    //Log.i(TAG, "Results: " + results.toString());
                     animes.addAll(Anime.fromJsonArray(results));
                     animeAdapter.notifyDataSetChanged();
                     Log.i(TAG, "Anime: " + animes.size());
@@ -81,7 +81,7 @@ public class ComposeFragment extends Fragment {
 
             @Override
             public void onFailure(int i, Headers headers, String s, Throwable throwable) {
-                Log.e(TAG, "anFailure");
+                Log.e(TAG, "onFailure Compose Activity");
             }
         });
 
