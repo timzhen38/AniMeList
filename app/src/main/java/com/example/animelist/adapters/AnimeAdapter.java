@@ -2,6 +2,7 @@ package com.example.animelist.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,10 +20,16 @@ import com.bumptech.glide.Glide;
 import com.example.animelist.DetailActivity;
 import com.example.animelist.R;
 import com.example.animelist.model.Anime;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import org.parceler.Parcel;
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.ViewHolder>{
@@ -85,6 +93,44 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.ViewHolder>{
                     Intent i = new Intent(context, DetailActivity.class);
                     i.putExtra("anime",Parcels.wrap(anime));
                     context.startActivity(i);
+                }
+            });
+
+            subscribeBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("subscribed");
+                    query.whereEqualTo("user", ParseUser.getCurrentUser());
+                    if (anime.isSubscribed() == false) {
+                        Toast.makeText(context, "You have subscribed! ", Toast.LENGTH_SHORT).show();
+                        anime.subscribe();
+                        query.getFirstInBackground(new GetCallback<ParseObject>() {
+                            @Override
+                            public void done(ParseObject object, ParseException e) {
+                                object.add("subscribedAnimes", anime.getTitle());
+                                object.saveInBackground();
+                            }
+                        });
+                        subscribeBtn.setText("Subscribed");
+                        subscribeBtn.setBackgroundColor(Color.GRAY);
+                    }
+                    else {
+                        Toast.makeText(context, "You have unsubscribed! ", Toast.LENGTH_SHORT).show();
+                        anime.unsubscribe();
+                        query.getFirstInBackground(new GetCallback<ParseObject>() {
+                            @Override
+                            public void done(ParseObject object, ParseException e) {
+                                List<String> subscribed_anime = new ArrayList<String>();
+                                subscribed_anime = object.getList("subscribedAnimes");
+                                subscribed_anime.remove(anime.getTitle());
+                                object.remove("subscribedAnimes");
+                                object.put("subscribedAnimes", subscribed_anime);
+                                object.saveInBackground();
+                            }
+                        });
+                        subscribeBtn.setText("Subscribe");
+                        subscribeBtn.setBackgroundColor(Color.rgb(255, 165, 0));
+                    }
                 }
             });
         }
