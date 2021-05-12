@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/ivPoster"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -33,4 +33,16 @@
         android:layout_toEndOf="@+id/ivPoster"
         android:text="Fifth season of Boku no Hero Academia."
         android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/subscribeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvOverview"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="-3dp"
+        android:layout_marginEnd="5dp"
+        android:layout_toEndOf="@+id/ivPoster"
+        android:text="Subscribe"
+        android:textSize="14sp" />
 </RelativeLayout>

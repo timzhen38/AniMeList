@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -61,6 +62,7 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.ViewHolder>{
         TextView tvTitle;
         TextView tvOverview;
         ImageView ivPoster;
+        Button subscribeBtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,6 +70,7 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.ViewHolder>{
             tvOverview = itemView.findViewById(R.id.tvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
             container = itemView.findViewById(R.id.container);
+            subscribeBtn = itemView.findViewById(R.id.subscribeBtn);
         }
 
         public void bind(Anime anime) {
