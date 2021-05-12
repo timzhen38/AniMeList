@@ -163,3 +163,6 @@ Subscribe to currently airing anime and get notified when new episodes are relea
 
 ### Sprint 2
 <img src='sprint2.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
+
+### Sprint 3
+<img src='sprint3.gif' title='Video Walkthrough' width='250' alt='Video Walkthrough' />
