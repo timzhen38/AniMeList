@@ -8,9 +8,11 @@
 
     <ImageView
         android:id="@+id/ivPoster"
-        android:layout_width="160dp"
+        android:layout_width="113dp"
         android:layout_height="160dp"
+        android:layout_marginLeft="7dp"
         android:layout_marginTop="7dp"
+        android:layout_marginBottom="5dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -18,11 +20,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="7dp"
         android:layout_marginTop="7dp"
         android:layout_marginEnd="5dp"
         android:layout_toEndOf="@+id/ivPoster"
         android:textSize="24sp"
+        android:textStyle="bold"
         tools:text="Boku no Hero Academia 5th Season" />
 
     <TextView
@@ -31,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvTitle"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="7dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_toEndOf="@+id/ivPoster"
@@ -45,9 +48,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvOverview"
-        android:layout_marginStart="105dp"
-        android:layout_marginTop="-3dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:layout_toEndOf="@+id/ivPoster"
         android:text="Subscribe"
         android:textSize="14sp" />

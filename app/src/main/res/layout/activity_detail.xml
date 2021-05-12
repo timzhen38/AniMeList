@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,8 +8,9 @@
 
     <ImageView
         android:id="@+id/ivPoster"
-        android:layout_width="225px"
-        android:layout_height="318px"
+        android:layout_width="424.5px"
+        android:layout_height="600px"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         tools:layout_editor_absoluteX="3dp"
         tools:layout_editor_absoluteY="0dp"
