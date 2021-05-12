@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/ivPoster"
-        android:layout_width="600px"
-        android:layout_height="600px"
+        android:layout_width="225px"
+        android:layout_height="318px"
         android:layout_marginTop="5dp"
         tools:layout_editor_absoluteX="3dp"
         tools:layout_editor_absoluteY="0dp"
@@ -24,6 +24,8 @@
         android:layout_marginTop="7dp"
         android:layout_marginEnd="5dp"
         android:layout_toEndOf="@+id/ivPoster"
+        android:textSize="20dp"
+        android:textStyle="bold"
         tools:layout_editor_absoluteX="131dp"
         tools:layout_editor_absoluteY="0dp"
         tools:text="Title of Anime" />
@@ -55,5 +57,6 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="36dp"
         android:layout_toEndOf="@+id/ivPoster"
-        android:text="Rating" />
+        android:text="Rating"
+        android:textColor="#000000" />
 </RelativeLayout>
