@@ -32,6 +32,7 @@ Subscribe to currently airing anime and get notified when new episodes are relea
 
 - [x] User registers/logins to have a personal list of what animes they want to subscribe
 - [x] Users can see all of the currently airing anime
+- [x] Users can click on an anime to see a detailed view about it
 - [ ] User can subscribe to which anime they want to get notified about
 - [ ] Settings (Light/Dark Mode)
 
