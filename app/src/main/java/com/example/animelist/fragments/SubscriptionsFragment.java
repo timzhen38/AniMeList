@@ -38,7 +38,7 @@ import okhttp3.Headers;
 public class SubscriptionsFragment extends Fragment {
 
     public String NOW_PLAYING_URL;
-    public static final String TAG = "MainActivity";
+    public static final String TAG = "SubscriptionsFragment";
     List<Anime> animes;
 
     public SubscriptionsFragment() {

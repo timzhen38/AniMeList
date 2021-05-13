@@ -86,6 +86,7 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.ViewHolder>{
             tvOverview.setText(anime.getSynopsis());
             String imageUrl = anime.getImageURL();
             Glide.with(context).load(imageUrl).into(ivPoster);
+            updateButton(anime);
 
             container.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -101,35 +102,50 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.ViewHolder>{
                 public void onClick(View v) {
                     ParseQuery<ParseObject> query = ParseQuery.getQuery("subscribed");
                     query.whereEqualTo("user", ParseUser.getCurrentUser());
-                    if (anime.isSubscribed() == false) {
-                        Toast.makeText(context, "You have subscribed! ", Toast.LENGTH_SHORT).show();
-                        anime.subscribe();
-                        query.getFirstInBackground(new GetCallback<ParseObject>() {
-                            @Override
-                            public void done(ParseObject object, ParseException e) {
-                                object.add("subscribedAnimes", anime.getTitle());
-                                object.saveInBackground();
-                            }
-                        });
-                        subscribeBtn.setText("Subscribed");
-                        subscribeBtn.setBackgroundColor(Color.GRAY);
-                    }
-                    else {
-                        Toast.makeText(context, "You have unsubscribed! ", Toast.LENGTH_SHORT).show();
-                        anime.unsubscribe();
-                        query.getFirstInBackground(new GetCallback<ParseObject>() {
-                            @Override
-                            public void done(ParseObject object, ParseException e) {
-                                List<String> subscribed_anime = new ArrayList<String>();
-                                subscribed_anime = object.getList("subscribedAnimes");
+                    query.getFirstInBackground(new GetCallback<ParseObject>() {
+                        @Override
+                        public void done(ParseObject object, ParseException e) {
+                            List<String> subscribed_anime = new ArrayList<String>();
+                            subscribed_anime = object.getList("subscribedAnimes");
+                            if (subscribed_anime.contains(anime.getTitle())) {
+                                subscribeBtn.setText("Subscribe");
+                                subscribeBtn.setBackgroundResource(android.R.drawable.btn_default);
+
                                 subscribed_anime.remove(anime.getTitle());
                                 object.remove("subscribedAnimes");
                                 object.put("subscribedAnimes", subscribed_anime);
                                 object.saveInBackground();
+                                Toast.makeText(context, "You have unsubscribed! ", Toast.LENGTH_SHORT).show();
                             }
-                        });
+                            else {
+                                subscribeBtn.setText("Subscribed");
+                                subscribeBtn.setBackgroundColor(Color.GRAY);
+
+                                object.addUnique("subscribedAnimes", anime.getTitle());
+                                object.saveInBackground();
+                                Toast.makeText(context, "You have subscribed! ", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
+        public void updateButton(Anime anime) {
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("subscribed");
+            query.whereEqualTo("user", ParseUser.getCurrentUser());
+            query.getFirstInBackground(new GetCallback<ParseObject>() {
+                @Override
+                public void done(ParseObject object, ParseException e) {
+                    List<String> subscribed_anime = new ArrayList<String>();
+                    subscribed_anime = object.getList("subscribedAnimes");
+                    if (subscribed_anime.contains(anime.getTitle())) {
+                        subscribeBtn.setText("Subscribed");
+                        subscribeBtn.setBackgroundColor(Color.GRAY);
+                    }
+                    else {
                         subscribeBtn.setText("Subscribe");
-                        subscribeBtn.setBackgroundColor(Color.rgb(255, 165, 0));
+                        subscribeBtn.setBackgroundResource(android.R.drawable.btn_default);
                     }
                 }
             });

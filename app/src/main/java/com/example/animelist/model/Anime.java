@@ -20,7 +20,6 @@ public class Anime {
     String score;
     String genre;
     String studio;
-    boolean subscribed;
 
     public Anime(){}
 
@@ -34,7 +33,6 @@ public class Anime {
         score = jsonObject.getString("score");
         genre = allGenres(jsonObject);
         studio = animeStudio(jsonObject);
-        subscribed = false;
     }
 
     public static List<Anime> fromJsonArray(JSONArray animeJsonArray) throws JSONException {
@@ -101,15 +99,4 @@ public class Anime {
 
     }*/
 
-    public boolean isSubscribed() {
-        return subscribed;
-    }
-
-    public void subscribe() {
-        subscribed = true;
-    }
-
-    public void unsubscribe() {
-        subscribed = false;
-    }
 }
