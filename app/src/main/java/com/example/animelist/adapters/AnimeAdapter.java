@@ -109,7 +109,7 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.ViewHolder>{
                             subscribed_anime = object.getList("subscribedAnimes");
                             if (subscribed_anime.contains(anime.getTitle())) {
                                 subscribeBtn.setText("Subscribe");
-                                subscribeBtn.setBackgroundResource(android.R.drawable.btn_default);
+                                subscribeBtn.setTextColor(Color.WHITE);
 
                                 subscribed_anime.remove(anime.getTitle());
                                 object.remove("subscribedAnimes");
@@ -119,7 +119,7 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.ViewHolder>{
                             }
                             else {
                                 subscribeBtn.setText("Subscribed");
-                                subscribeBtn.setBackgroundColor(Color.GRAY);
+                                subscribeBtn.setTextColor(Color.BLACK);
 
                                 object.addUnique("subscribedAnimes", anime.getTitle());
                                 object.saveInBackground();
@@ -141,11 +141,11 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.ViewHolder>{
                     subscribed_anime = object.getList("subscribedAnimes");
                     if (subscribed_anime.contains(anime.getTitle())) {
                         subscribeBtn.setText("Subscribed");
-                        subscribeBtn.setBackgroundColor(Color.GRAY);
+                        subscribeBtn.setTextColor(Color.BLACK);
                     }
                     else {
                         subscribeBtn.setText("Subscribe");
-                        subscribeBtn.setBackgroundResource(android.R.drawable.btn_default);
+                        subscribeBtn.setTextColor(Color.WHITE);
                     }
                 }
             });
