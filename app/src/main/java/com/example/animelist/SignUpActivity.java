@@ -59,7 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
                         public void done(ParseException e) {
                             if (e == null) {
                                 ParseObject newUser = new ParseObject("subscribed");
-                                newUser.put("subscribedAnimes", Arrays.asList(""));
+                                newUser.put("subscribedAnimes", Arrays.asList());
                                 newUser.put("user", user);
                                 newUser.saveInBackground(new SaveCallback() {
                                     @Override
