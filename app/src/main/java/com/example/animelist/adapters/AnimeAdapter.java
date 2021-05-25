@@ -53,10 +53,10 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d("AnimeAdapter", "onBindViewHolder " + position);
-        //Get the movie at the passed in position
+
         Anime anime = animes.get(position);
-        //Bind the movie data into the VH
-        holder.bind(anime);
+        if(!anime.getGenre().contains("Hentai"))
+            holder.bind(anime);
     }
 
     @Override
