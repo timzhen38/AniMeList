@@ -70,8 +70,13 @@ public class AnimeFragment extends Fragment {
                 JSONObject jsonObject = json.jsonObject;
                 try {
                     JSONArray results = jsonObject.getJSONArray("anime");
-                    //Log.i(TAG, "Results: " + results.toString());
-                    animes.addAll(Anime.fromJsonArray(results));
+                    List<Anime> allAnimes = Anime.fromJsonArray(results);
+                    for(int j=0;j<allAnimes.size();j++)
+                    {
+                        if(!allAnimes.get(j).getGenre().contains("Hentai"))
+                            animes.add(allAnimes.get(j));
+                    }
+                    //animes.addAll(Anime.fromJsonArray(results));
                     animeAdapter.notifyDataSetChanged();
                     Log.i(TAG, "Anime: " + animes.size());
                 } catch (JSONException e) {

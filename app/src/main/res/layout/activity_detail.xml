@@ -66,12 +66,36 @@
         <TextView
             android:id="@+id/tvStudio"
             android:layout_width="232dp"
-            android:layout_height="33dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/tvGenre"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_toEndOf="@+id/ivPoster"
             tools:text="Studio" />
+
+        <TextView
+            android:id="@+id/tvScore"
+            android:layout_width="229dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvStudio"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="0dp"
+            android:layout_toEndOf="@+id/ivPoster"
+            tools:text="Score" />
+
+        <TextView
+            android:id="@+id/tvEpisodes"
+            android:layout_width="232dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvScore"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="7dp"
+            android:layout_toEndOf="@+id/ivPoster"
+            tools:text="Episodes" />
 
     </RelativeLayout>
 </ScrollView>

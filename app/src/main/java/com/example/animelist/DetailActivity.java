@@ -20,6 +20,8 @@ public class DetailActivity extends AppCompatActivity {
     TextView tvGenre;
     TextView tvStudio;
     ImageView ivPoster;
+    TextView tvScore;
+    TextView tvEpisodes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,8 @@ public class DetailActivity extends AppCompatActivity {
         ivPoster = findViewById(R.id.ivPoster);
         tvGenre=findViewById(R.id.tvGenre);
         tvStudio=findViewById(R.id.tvStudio);
+        tvScore=findViewById(R.id.tvScore);
+        tvEpisodes=findViewById(R.id.tvEpisodes);
 
         Anime anime = Parcels.unwrap(getIntent().getParcelableExtra("anime"));
 
@@ -38,6 +42,8 @@ public class DetailActivity extends AppCompatActivity {
         tvOverview.setText(anime.getSynopsis());
         tvGenre.setText(anime.getGenre());
         tvStudio.setText(anime.getStudio());
+        tvScore.setText("Score: "+anime.getScore());
+        tvEpisodes.setText("Totals Episodes: "+anime.getEpisodes());
         Glide.with(this).load(anime.getImageURL()).into(ivPoster);
     }
 }

@@ -5,10 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".fragments.SubscriptionsFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvSubscribedAnimes"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="2dp" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSubscribedAnimes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="6dp"
+            tools:layout_editor_absoluteY="2dp" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 </LinearLayout>
