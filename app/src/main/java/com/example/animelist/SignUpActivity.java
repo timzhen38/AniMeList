@@ -12,8 +12,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
+
+import java.util.Arrays;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -54,7 +58,15 @@ public class SignUpActivity extends AppCompatActivity {
                         @Override
                         public void done(ParseException e) {
                             if (e == null) {
-                                Toast.makeText(SignUpActivity.this, "Successful Sign Up! ", Toast.LENGTH_SHORT).show();
+                                ParseObject newUser = new ParseObject("subscribed");
+                                newUser.put("subscribedAnimes", Arrays.asList(""));
+                                newUser.put("user", user);
+                                newUser.saveInBackground(new SaveCallback() {
+                                    @Override
+                                    public void done(ParseException e) {
+                                        Toast.makeText(SignUpActivity.this, "Successful Sign Up! ", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
                                 goLoginActivity();
                             } else {
                                 ParseUser.logOut();
@@ -62,6 +74,7 @@ public class SignUpActivity extends AppCompatActivity {
                             }
                         }
                     });
+
                 }
                 else{
                     Toast.makeText(SignUpActivity.this, "Passwords Aren't the Same!", Toast.LENGTH_SHORT).show();
