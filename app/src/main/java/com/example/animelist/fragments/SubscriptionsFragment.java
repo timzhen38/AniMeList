@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
@@ -40,6 +41,7 @@ public class SubscriptionsFragment extends Fragment {
     public String NOW_PLAYING_URL;
     public static final String TAG = "SubscriptionsFragment";
     List<Anime> animes;
+    protected SwipeRefreshLayout swipeContainer;
 
     public SubscriptionsFragment() {
     }
@@ -75,6 +77,7 @@ public class SubscriptionsFragment extends Fragment {
                 Log.e(TAG, "anSuccess");
                 JSONObject jsonObject = json.jsonObject;
                 try {
+                    animeAdapter.clear();
                     JSONArray results = jsonObject.getJSONArray("anime");
                     Log.i(TAG, "Results: " + results.toString());
                     List<Anime> temp = Anime.fromJsonArray(results);
@@ -108,6 +111,56 @@ public class SubscriptionsFragment extends Fragment {
             }
         });
 
+        swipeContainer = view.findViewById(R.id.swipeContainer);
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int i, Headers headers, JSON json) {
+                        Log.e(TAG, "anSuccess");
+                        JSONObject jsonObject = json.jsonObject;
+                        try {
+                            animeAdapter.clear();
+                            JSONArray results = jsonObject.getJSONArray("anime");
+                            Log.i(TAG, "Results: " + results.toString());
+                            List<Anime> temp = Anime.fromJsonArray(results);
+
+                            ParseQuery<ParseObject> query = ParseQuery.getQuery("subscribed");
+                            query.whereEqualTo("user", ParseUser.getCurrentUser());
+                            query.getFirstInBackground(new GetCallback<ParseObject>() {
+                                @Override
+                                public void done(ParseObject object, ParseException e) {
+                                    List<String> subscribed_anime = new ArrayList<String>();
+                                    subscribed_anime = object.getList("subscribedAnimes");
+                                    for (int i = 0; i < temp.size(); i++)
+                                    {
+                                        if (subscribed_anime.contains(temp.get(i).getTitle()))
+                                        {
+                                            animes.add(temp.get(i));
+                                        }
+                                    }
+                                    Log.i(TAG, "Anime: " + animes.size());
+                                    animeAdapter.notifyDataSetChanged();
+                                    swipeContainer.setRefreshing(false);
+                                }
+                            });
+                        } catch (JSONException e) {
+                            Log.e(TAG, "Hit json exception", e);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(int i, Headers headers, String s, Throwable throwable) {
+                        Log.e(TAG, "anFailure");
+                    }
+                });
+            }
+        });
     }
 
     private void getSeason()

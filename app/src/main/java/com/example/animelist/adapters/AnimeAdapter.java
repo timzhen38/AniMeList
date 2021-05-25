@@ -64,6 +64,11 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.ViewHolder>{
         return animes.size();
     }
 
+    public void clear() {
+        animes.clear();
+        notifyDataSetChanged();
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         RelativeLayout container;
