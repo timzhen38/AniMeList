@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.example.animelist.fragments.ComposeFragment;
+import com.example.animelist.fragments.AnimeFragment;
 import com.example.animelist.fragments.SettingsFragment;
 import com.example.animelist.fragments.SubscriptionsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -29,14 +29,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottomNavigation);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 Fragment fragment;
                 switch (menuItem.getItemId()) {
                     case R.id.action_home:
-                        fragment = new ComposeFragment();
+                        fragment = new AnimeFragment();
                         break;
                     case R.id.action_subscription:
                         fragment = new SubscriptionsFragment();

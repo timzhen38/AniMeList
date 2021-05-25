@@ -28,13 +28,13 @@ import java.util.List;
 
 import okhttp3.Headers;
 
-public class ComposeFragment extends Fragment {
+public class AnimeFragment extends Fragment {
 
     public String NOW_PLAYING_URL;
     public static final String TAG = "MainActivity";
     List<Anime> animes;
 
-    public ComposeFragment() {
+    public AnimeFragment() {
     }
 
     @Override

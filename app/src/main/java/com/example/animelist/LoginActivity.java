@@ -17,9 +17,10 @@ import com.parse.ParseUser;
 public class LoginActivity extends AppCompatActivity {
 
     public static final String TAG = "LoginActivity";
-    private EditText etUsername;
-    private EditText etPassword;
+    private EditText etLoginUsername;
+    private EditText etLoginPassword;
     private Button btnLogin;
+    private Button btnCreateAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +31,27 @@ public class LoginActivity extends AppCompatActivity {
             goMainActivity();
         }
 
-        etUsername = findViewById(R.id.etUsername);
-        etPassword = findViewById(R.id.etPassword);
+        etLoginUsername = findViewById(R.id.etLoginUsername);
+        etLoginPassword = findViewById(R.id.etLoginPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        btnCreateAccount = findViewById(R.id.btnCreateAccount);
+
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "onClick login button");
-                String username = etUsername.getText().toString();
-                String password = etPassword.getText().toString();
+                String username = etLoginUsername.getText().toString();
+                String password = etLoginPassword.getText().toString();
                 loginUser(username, password);
+            }
+        });
+
+        btnCreateAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "onClick create account button");
+                goCreateAccount();
             }
         });
 
@@ -67,6 +79,11 @@ public class LoginActivity extends AppCompatActivity {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         finish();
+    }
+
+    private void goCreateAccount() {
+        Intent i = new Intent(this, SignUpActivity.class);
+        startActivity(i);
     }
 
 }

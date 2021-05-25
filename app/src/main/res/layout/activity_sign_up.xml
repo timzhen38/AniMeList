@@ -6,7 +6,7 @@
     android:layout_margin="16dp">
 
     <EditText
-        android:id="@+id/etLoginUsername"
+        android:id="@+id/etSignUpUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -15,7 +15,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/etLoginPassword"
+        android:id="@+id/etSignUpPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -23,17 +23,26 @@
         android:hint="Password"
         android:inputType="textPassword"/>
 
-    <Button
-        android:id="@+id/btnLogin"
+    <EditText
+        android:id="@+id/etPasswordConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Login" />
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"/>
 
     <Button
-        android:id="@+id/btnCreateAccount"
+        android:id="@+id/btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Create New Account"/>
+        android:text="Sign Up" />
+
+    <Button
+        android:id="@+id/btnReturnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Return to Login" />
 </LinearLayout>
