@@ -2,6 +2,7 @@ package com.example.animelist;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Html;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -40,10 +41,10 @@ public class DetailActivity extends AppCompatActivity {
 
         tvTitle.setText(anime.getTitle());
         tvOverview.setText(anime.getSynopsis());
-        tvGenre.setText(anime.getGenre());
-        tvStudio.setText(anime.getStudio());
-        tvScore.setText("Score: "+anime.getScore());
-        tvEpisodes.setText("Totals Episodes: "+anime.getEpisodes());
+        tvGenre.setText(Html.fromHtml("<b>Genre:</b> "+anime.getGenre()));
+        tvStudio.setText(Html.fromHtml("<b>Studio:</b> "+anime.getStudio()));
+        tvScore.setText(Html.fromHtml("<b>Score:</b> "+anime.getScore()));
+        tvEpisodes.setText(Html.fromHtml("<b>Totals Episodes:</b> "+anime.getEpisodes()));
         Glide.with(this).load(anime.getImageURL()).into(ivPoster);
     }
 }

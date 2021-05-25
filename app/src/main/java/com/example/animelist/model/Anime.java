@@ -46,7 +46,7 @@ public class Anime {
 
     public String allGenres(JSONObject jsonObject) throws JSONException {
         JSONArray genreList = jsonObject.getJSONArray("genres");
-        String allGenreString = "Genre: ";
+        String allGenreString = "";
         for(int i=0;i<genreList.length();i++)
         {
             if(i==genreList.length()-1)
@@ -62,7 +62,7 @@ public class Anime {
         String studio="";
         for(int i=0;i<producers.length();i++)
         {
-            studio="Studio: "+producers.getJSONObject(i).getString("name");
+            studio=producers.getJSONObject(i).getString("name");
         }
         return studio;
     }
