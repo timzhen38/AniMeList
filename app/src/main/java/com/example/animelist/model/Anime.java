@@ -16,7 +16,7 @@ public class Anime {
     String synopsis;
     String image_url;
     String type;
-    //int episodes;
+    String episodes;
     String score;
     String genre;
     String studio;
@@ -29,7 +29,7 @@ public class Anime {
         synopsis = jsonObject.getString("synopsis");
         image_url = jsonObject.getString("image_url");
         type = jsonObject.getString("type");
-        //episodes = jsonObject.getInt("episodes");
+        episodes = jsonObject.getString("episodes");
         score = jsonObject.getString("score");
         genre = allGenres(jsonObject);
         studio = animeStudio(jsonObject);
@@ -92,11 +92,5 @@ public class Anime {
 
     public String getStudio() { return studio; }
 
-    /*public int getEpisodes() {
-        return episodes;
-    }
-
-
-    }*/
-
+    public String getEpisodes() { return episodes; }
 }
