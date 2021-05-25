@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new SettingsFragment();
                         break;
                 }
+
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
                 return true;
             }
@@ -53,11 +54,15 @@ public class MainActivity extends AppCompatActivity {
         if(savedInstanceState == null)
             bottomNavigationView.setSelectedItemId(R.id.action_home);
 
+
+
         sharedPreferences = getSharedPreferences("save", Context.MODE_PRIVATE);
         if(sharedPreferences.getBoolean("value",true))
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        else
+        else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+
     }
 
 }

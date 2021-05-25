@@ -25,6 +25,7 @@ public class SettingsFragment extends Fragment {
 
     Button logoutBtn;
     Switch modeSwitch;
+    SharedPreferences sharedPreferences;
 
     public SettingsFragment() {
     }
@@ -51,6 +52,7 @@ public class SettingsFragment extends Fragment {
         modeSwitch = view.findViewById(R.id.swModeToggle);
         SharedPreferences sharedPref = getActivity().getSharedPreferences("save", Context.MODE_PRIVATE);
         modeSwitch.setChecked(sharedPref.getBoolean("value",true));
+
         /*
         modeSwitch.setOnClickListener(new View.OnClickListener() {
             @Override
