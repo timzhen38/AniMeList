@@ -55,8 +55,8 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.ViewHolder>{
         Log.d("AnimeAdapter", "onBindViewHolder " + position);
 
         Anime anime = animes.get(position);
-        if(!anime.getGenre().contains("Hentai"))
-            holder.bind(anime);
+
+        holder.bind(anime);
     }
 
     @Override
